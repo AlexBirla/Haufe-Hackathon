@@ -25,8 +25,21 @@ function App() {
       setData(res)
     });
   },[])
-  const position = [51.505, -0.09]
-  console.log(data)
+  const position = [45.75372, 21.22571]
+  let nrHaine=0,nrSticla=0,nrDeseuriVoluminoase=0,nrBaterii=0,nrUlei=0
+  for(let i=0; i<data.length;i++){
+      if(data[i]['tip colectare'] === 'sticlă')
+        nrSticla++
+      if(data[i]['tip colectare'] === 'haine')
+        nrHaine++
+      if(data[i]['tip colectare'] === 'deșeuri voluminoase')
+        nrDeseuriVoluminoase++
+      if(data[i]['tip colectare'] === 'baterii')
+        nrBaterii++   
+      if(data[i]['tip colectare'] === 'ulei utilizat')
+        nrUlei++         
+  }
+  console.log(nrUlei)
   return (
     <>
   <table>
@@ -53,6 +66,13 @@ function App() {
     })}
   </tbody>
 </table>
+<>
+<h1>Numar centre colectare sticlă:{nrSticla}</h1>
+<h1>Numar centre colectare haine:{nrHaine}</h1>
+<h1>Numar centre colectare deșeuri voluminoase:{nrDeseuriVoluminoase}</h1>
+<h1>Numar centre colectare baterii:{nrBaterii}</h1>
+<h1>Numar centre colectare ulei utilizat:{nrUlei}</h1>
+</>
 <div>
     <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
     <TileLayer
