@@ -42,6 +42,7 @@ function App() {
   console.log(nrUlei)
   return (
     <>
+    <center>
   <table>
   <thead>
     <tr>
@@ -66,6 +67,7 @@ function App() {
     })}
   </tbody>
 </table>
+</center>
 <>
 <h1>Numar centre colectare sticlă:{nrSticla}</h1>
 <h1>Numar centre colectare haine:{nrHaine}</h1>
